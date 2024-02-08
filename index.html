@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>will </title>
+
+	<style>
+body {
+  background-image: url('11.png');
+}
+
+.music {
+width: 310px;
+height:200px;
+	background-image: url('player.gif');
+	margin: auto;
+}
+
+#videoContainer{
+	display: block;
+  margin: auto;
+
+}
+
+
+#blinkText {
+  animation: blinker 1s linear infinite;
+
+  font-family: 'Brush Script MT', cursive;
+
+  font-size: 80px;
+  text-align: center;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#textikno {
+
+	font-family: 'Brush Script MT', cursive;
+
+  font-size: 20px;
+
+}
+
+
+#textikyes {
+
+	font-family: 'Brush Script MT', cursive;
+
+  font-size: 40px;
+
+}
+
+.box{
+
+content: "";
+  clear: both;
+  display: table;
+
+
+}
+
+.parts {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+  .btn:hover {background: #eee;}
+
+
+  .image-container {
+            text-align: center;
+            margin-top: 20px;
+            display: none; /* Initially hide the image container */
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+
+
+
+</style>
+
+</head>
+<body>
+
+
+
+
+<div class="blink_me" id="blinkText">Will you be my valentine?</div>
+
+<div class="box">
+	
+	<div class="parts">
+	
+<video width="320" height="240" id="videoyes" autoplay loop muted>
+  <source src="2.mov" type="video/mp4">
+  
+  </video>
+
+  <button class="btn" onclick="yes()"><h1 id="textikyes" >YES!!!</h1></button>
+
+
+</div>
+
+<div class="parts">
+	
+<video width="320" height="240" id="videono" autoplay loop muted>
+  <source src="3.mov" type="video/mp4">
+  
+  </video>
+
+<button class="btn" onclick="no()" id="textikno" ><h1>NO???</h1></button>
+
+</div>
+
+</div>
+
+<div class="image-container">
+    <button class="btn" onclick="hideOthers('image1')">Image 1</button>
+    <button class="btn" onclick="hideOthers('image2')">Image 2</button>
+    <button class="btn" onclick="hideOthers('image3')">Image 3</button>
+    <button class="btn" onclick="hideOthers('image4')">Image 4</button>
+    <button class="btn" onclick="hideOthers('image5')">Image 5</button>
+    <button class="btn" onclick="hideOthers('image6')">Image 6</button>
+</div>
+
+<div class="image-container" id="imageContainer">
+    <div>
+    	<button class="btn" onclick="hideOthers('image1')"><img id="image1" src="12.png" alt="Image 1"></button>
+        
+        <h2 id="text1">create minifigures of us</h2>
+    </div>
+    <div>
+    	    <button class="btn" onclick="hideOthers('image2')"><img id="image2" src="22.png" alt="Image 2"></button>
+        
+        <h2 id="text2">trampoline center</h2>
+    </div>
+    <div>
+    	<button class="btn" onclick="hideOthers('image3')"><img id="image3" src="32.png" alt="Image 3"></button>
+        
+        <h2 id="text3">wildpark</h2>
+    </div>
+    <div>
+    	<button class="btn" onclick="hideOthers('image4')"><img id="image4" src="42.png" alt="Image 4"></button>
+        
+        <h2 id="text4">romantic dinner</h2>
+    </div>
+    <div>
+    	<button class="btn" onclick="hideOthers('image5')"><img id="image5" src="52.png" alt="Image 5"></button>
+        
+        <h2 id="text5">trip to another city</h2>
+    </div>
+    <div>
+    	<button class="btn" onclick="hideOthers('image6')"><img id="image6" src="62.png" alt="Image 6"></button>
+
+        <h2 id="text6">cooking together</h2>
+    </div>
+</div>
+
+
+
+<div id="videoContainer" style="display: none;">
+    <video id="myVideo" width="640" height="480" >
+        <source src="IMG_5352.mov" type="video/mp4">
+    </video>
+</div>
+
+
+<div class="music">
+
+	<audio id="backgroundMusic" controls loop autoplay>
+	  
+	  <source src="riptide.mp3" type="audio/mpeg">
+
+	</audio>
+
+</div>	
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+    var backgroundMusic = document.getElementById('backgroundMusic');
+
+    backgroundMusic.play();
+	
+
+	function no(){
+
+		var textElement = document.getElementById("textikno");
+        var currentFontSize = window.getComputedStyle(textElement).fontSize;
+        var currentSize = parseFloat(currentFontSize); 
+        var newSize = currentSize * 0.9; 
+        textElement.style.fontSize = newSize + "px";
+
+        var textElement = document.getElementById("textikyes");
+        var currentFontSize = window.getComputedStyle(textElement).fontSize;
+        var currentSize = parseFloat(currentFontSize); 
+        var newSize = currentSize * 1.01; 
+        textElement.style.fontSize = newSize + "px";
+
+
+
+        var videoElement = document.getElementById("videono");
+        var currentWidth = videoElement.offsetWidth;
+        var currentHeight = videoElement.offsetHeight;
+        
+        var newWidth = currentWidth * 0.9; 
+        var newHeight = currentHeight * 0.9; 
+
+        videoElement.style.width = newWidth + "px";
+        videoElement.style.height = newHeight + "px";
+
+        var videoElement = document.getElementById("videoyes");
+        var currentWidth = videoElement.offsetWidth;
+        var currentHeight = videoElement.offsetHeight;
+        
+        var newWidth = currentWidth * 1.01; 
+        var newHeight = currentHeight * 1.01; 
+
+        videoElement.style.width = newWidth + "px";
+        videoElement.style.height = newHeight + "px";
+
+
+
+          var videoContainer = document.querySelector(".parts");
+        var videos = videoContainer.querySelectorAll("video");
+        var currentPadding = parseInt(window.getComputedStyle(videoContainer).padding);
+
+         var newPadding = currentPadding + 2; 
+
+        videoContainer.style.padding = newPadding + "px";
+
+        if (newPadding === 88) {
+            document.getElementById("videono").style.display = "none";
+            document.getElementById("textikno").style.display = "none";
+        }
+
+	}
+
+
+	function yes(){
+
+		var videoYes = document.getElementById("videoyes");
+        var videoNo = document.getElementById("videono");
+        var textYes = document.getElementById("textikyes");
+        var textNo = document.getElementById("textikno");
+
+     
+        videoYes.parentNode.removeChild(videoYes);
+        videoNo.parentNode.removeChild(videoNo);
+
+        
+        textYes.parentNode.removeChild(textYes);
+        textNo.parentNode.removeChild(textNo);
+
+        document.getElementById("imageContainer").style.display = "block";
+
+         document.getElementById("blinkText").innerText = "Pick what you'd like to do:";
+    
+    }
+
+    function hideOthers(imageId) {
+        var images = document.querySelectorAll('.image-container img');
+        for (var i = 0; i < images.length; i++) {
+            //if (images[i].id !== imageId) {
+                images[i].style.display = 'none';
+
+                var textId = "text" + images[i].id.substring(5); 
+            document.getElementById(textId).style.display = 'none';
+        
+            
+        }
+
+         selectedImageId = imageId;
+        document.getElementById('videoContainer').style.display = 'block';
+        var video = document.getElementById('myVideo');
+        backgroundMusic.pause();
+
+        video.play();
+        video.addEventListener('ended', onVideoEnded);
+        
+
+    }
+
+
+    function onVideoEnded() {
+        document.getElementById('videoContainer').style.display = 'none';
+        document.getElementById(selectedImageId).style.display = 'block';
+        var textId = "text" + selectedImageId.substring(5);
+        document.getElementById(textId).style.display = 'block';
+        backgroundMusic.play();
+    }
+	
+</script>
+
+
+</body>
+</html>
